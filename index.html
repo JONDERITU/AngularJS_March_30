@@ -12,27 +12,20 @@
 	<head>
 		<title> Angular Introduction</title>
 		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="main.css">
 		<script src="/node_modules/angular/angular.js"></script>
 	</head>
 		<body>
 			<!-- Angular bootstraping -initializing using ng-app -->
 		  <div ng-app="HelloApp" ng-controller="HelloCtrl">
 		  		<!-- binding using double braces -->
-			   <h1>Welcome To {{name}}</h1>
+		  		<!-- filter toconvert expression to uppercase -->
+			   <h1>Welcome To {{name |uppercase}}</h1>
 			  <form>
 			  		Input building or Company Name: <input type="text" placeholder="Enter building name" ng-model="name" name="name">
 			  </form>  
-		  </div>
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
-			<script type="text/javascript">
-				/*creating amodule */
-				angular.module('HelloApp', [])
-				.controller('HelloCtrl', ['$scope', function($scope){
-				$scope.name = "	";
-				}])
-		</script>
-		<div ng-init="lenght=1; width=1; height=1">
-					<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+			  <!-- ng-init -->
+			  <div ng-init="lenght=1; width=1; height=1">
 			<b>Area and volume of  a cube or cuboid</b>
 			</div>
 			<div>
@@ -45,12 +38,22 @@
 				Height: <input type="number" min="0.01" ng-model="height">
 			</div>
 			<div>
-				<b>Area of the shape:</b>  <p> ng-bind = "length * width * 2 + length * height * 2 + width * height * 2 " </p>
+				<p><b>Area of the shape:</b>   {{length * width * 2 + length * height * 2 + width * height * 2 }} Units<sup>2</sup></p>
 			</div>
 			<div>
-				<b>Volume of the shape:</b>  {{ length * width * height }}
+				<p><b>Volume of the shape:</b>  {{ length * width * height }} Units<sup>3</sup></p>
 			</div>
 		</div>
+		  </div>
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+			<script type="text/javascript">
+				/*creating amodule */
+				angular.module('HelloApp', [])
+				.controller('HelloCtrl', ['$scope', function($scope){
+				$scope.name = "";
+				}])
+		</script>
+		
 			
 	</body>
 </html>
